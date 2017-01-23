@@ -1,0 +1,76 @@
+//PRUEBAS PARA P3 CON CONSTANTES: PILA = 3, SOURCEPROGRAM = 30, PARSEDPROGRAM = 25, BCPROGRAM = 80
+//Ejemplo: compilar cuando no hay fichero cargado
+compile
+//Ejemplo: ejecutar cuando no hay fichero cargado
+run
+//Ejemplo: ejecutar cuando hay fichero cargado pero no compilado
+load fibonacci.txt
+run
+//Ejemplo normal correcto
+load fibonacci.txt
+compile
+run
+//Ejemplo whiles anidados
+load nestedwhile.txt
+compile
+run
+//Ejemplo fichero no existe
+load noexiste.txt
+//Ejemplo no parsea normal
+load noparsea1.txt
+compile
+run
+load noparsea2.txt
+compile
+run
+load noparsea3.txt
+compile
+run
+//Ejemplo no parsea dentro de while/if-then
+load whilenoparsea.txt
+compile
+run
+//Ejemplo falta end
+load noend.txt
+compile
+run
+//Ejemplo falta endwhile
+load noendwhile.txt
+compile
+run
+//EJemplo cuerpo de while vacio
+//load whilevacio.txt
+//compile
+//run
+//Ejemplo division por cero
+load divisioncero.txt
+compile
+run
+//Ejemplo pila llena: reemplazar instrucciones por push
+replacebc 0
+push 1
+replacebc 1
+push 2
+replacebc 2
+push 3
+replacebc 3
+push 4
+run
+//Ejemplo pila vacia: reemplazar instruccion por add
+replacebc 0
+add
+run
+//Ejemplo no parsea BC
+replace 0
+adf
+replace 0
+push a
+replace a
+//Ejemplo SourceProgram lleno
+load programaFuenteLargo.txt
+//Ejemplo ParsedProgram lleno
+load programaParseadoLargo.txt
+compile
+//Ejemplo ByteCodeProgram lleno
+load programaBCLargo.txt
+compile

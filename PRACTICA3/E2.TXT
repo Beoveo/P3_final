@@ -1,0 +1,6 @@
+x = 5
+if 0 < x
+x = 3
+endif
+write x
+end

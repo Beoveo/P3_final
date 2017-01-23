@@ -1,0 +1,10 @@
+a = 4
+b = a
+i = 1
+while i < b
+a = a * 4
+i = i + 1
+endwhile
+write a
+return
+end

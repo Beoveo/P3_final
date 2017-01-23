@@ -1,0 +1,6 @@
+while 2 < 3
+x = 1
+x = 2
+ENDWHILE
+x = 1
+END
