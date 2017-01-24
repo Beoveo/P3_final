@@ -37,7 +37,7 @@ abstract public class ConditionalJumps extends ByteCodeOneParameter{
 	}
 	
 	public ConditionalJumps newJump(int n) {
-		this.param = n;
+		super.param = n;
 		return this;
 	}
 	

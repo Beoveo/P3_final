@@ -27,6 +27,7 @@ public class Run implements Command {
 	 */
 	@Override
 	public Command parse(String[] s) {
+		s[0] = s[0].toUpperCase();
 		if (s.length!=1 || !s[0].equalsIgnoreCase("RUN")) return null;
 	else return new Run();
 	}

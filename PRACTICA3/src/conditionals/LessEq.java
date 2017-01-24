@@ -28,7 +28,6 @@ public class LessEq extends Condition {
 	protected void nextCompile(Compiler compiler)throws ArrayException {
 		compiler.addByteCode(this.t1.compile(compiler));
 		compiler.addByteCode(this.t2.compile(compiler));
-		compiler.addByteCode(this.newCondition());	
 	}
 	
 	@Override

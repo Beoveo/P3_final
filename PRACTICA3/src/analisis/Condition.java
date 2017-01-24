@@ -23,6 +23,7 @@ public abstract class Condition {
 	 }
 
 	 public void compile(Compiler compiler) throws ArrayException{
+		 nextCompile(compiler);
 		 this.condition = this.newCondition();
 		 compiler.addByteCode(this.condition);
 	 }

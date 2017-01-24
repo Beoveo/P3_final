@@ -12,7 +12,8 @@ public class Return implements Instruction {
 	public Instruction lexParse(String[] words, LexicalParser lexParser) {
 		if(words.length != 1) return null;
 		else{
-			if(!words[0].equalsIgnoreCase("return")) return null;
+			words[0] = words[0].toUpperCase();
+			if(!words[0].equalsIgnoreCase("RETURN")) return null;
 			else{		
 					lexParser.increaseProgramCounter();
 					return new Return();

@@ -26,7 +26,6 @@ public class Compiler {
 		 	}
 	 }
 	 
-	 //throws
 	 public void addByteCode(ByteCode b)throws ArrayException {this.bcProgram.insertarByteCode(b);}
 	 
 	 

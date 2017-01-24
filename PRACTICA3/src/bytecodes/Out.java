@@ -16,7 +16,7 @@ public class Out implements ByteCode {
 	public void execute(CPU cpu) throws StackException{
 		if(cpu.getSizeStack() <= 0) throw new StackException("Error: La pila esta vacia.");
 		else{
-			System.out.println(cpu.out());
+			System.out.println("consola: " + cpu.out());
 			cpu.increaseProgramCounter(); 
 		}
 	}

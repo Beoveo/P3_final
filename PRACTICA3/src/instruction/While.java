@@ -25,6 +25,7 @@ public class While implements Instruction{
 		Condition cond2;
 		if(words.length != 4) return null;
 		else {
+			words[0] = words[0].toUpperCase();
 			if(!words[0].equalsIgnoreCase("WHILE")) return null;
 			else {
 				cond2 = ConditionParser.parse(words[1], words[2], words[3], lexParser);

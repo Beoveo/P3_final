@@ -22,6 +22,7 @@ public class Reset implements Command {
 	 */
 	@Override
 	public Command parse(String[] s) {
+		s[0] = s[0].toUpperCase();
 	if (s.length!=1 || !s[0].equalsIgnoreCase("RESET")) return null;
 		else return new Reset();
 	}

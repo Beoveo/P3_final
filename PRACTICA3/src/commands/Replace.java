@@ -31,8 +31,9 @@ public class Replace implements Command {
 	 * Si coincide con la instruccion devuelve un nuevo objeto de esta, sino devuelve null.
 	 */
 	public Command parseAux(String string1, String string2) {
+		string1 = string1.toUpperCase();
 		int param = Integer.parseInt(string2);
-		if(!string1.equalsIgnoreCase("REPLACE")|| param < 0) return null;
+		if(!string1.equalsIgnoreCase("REPLACEBC")|| param < 0) return null;
 		else return new Replace(param);
 	}
 	
@@ -41,6 +42,7 @@ public class Replace implements Command {
 	 */
 	@Override
 	public Command parse(String[] s) {
+		s[0] = s[0].toUpperCase();
 		if (s.length!=2 || !s[0].equals("REPLACE")) return null;
 	else return parseAux(s[0], s[1]);
 	}

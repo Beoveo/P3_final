@@ -22,7 +22,8 @@ public class Write implements Instruction {
 		String varName;
 		if(words.length != 2) return null;
 		else{
-			if(!words[0].equalsIgnoreCase("write"))return null;
+			words[0] = words[0].toUpperCase();
+			if(!words[0].equalsIgnoreCase("WRITE"))return null;
 			else {
 				varName = words[1];
 				if (varName.length() !=1) throw new LexicalAnalisisException("Error: tamano de la variable erroneo.");

@@ -86,7 +86,6 @@ import generate_bc.Compiler;
 				while(!end){
 				System.out.println(">"); 
 				line = in.nextLine();
-				line =  line.toUpperCase();
 				comando = CommandParser.parse(line); 
 				if(comando == null) System.out.println("Error: Vuelva introducir el comando.");
 				else {
@@ -106,7 +105,9 @@ import generate_bc.Compiler;
 		 * Se ejecuta cuando llamamos a RESET.
 		 * @return Devuelve true si se ha ejecutado.
 		 */
-		public boolean resetProgram(){ 
+		public boolean resetProgram(){
+			sProgram.reset();
+			parsedProgram.reset();
 			bcProgram.reset();
 			cpu.reset();
 			return true;
@@ -134,6 +135,8 @@ import generate_bc.Compiler;
 								System.getProperty("line.separator"));
 			System.out.println(cpu.toString());
 			cpu.reset();
+			sProgram.reset();
+			parsedProgram.reset();
 			cpu.resetHalt();
 			return exeOk; 
 }

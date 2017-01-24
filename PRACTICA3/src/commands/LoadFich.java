@@ -21,6 +21,7 @@ public class LoadFich implements Command {
 
 	@Override
 	public Command parse(String[] s) {
+		s[0] = s[0].toUpperCase();
 		if (s.length!=2 || !s[0].equalsIgnoreCase("LOAD")) return null;
 		else{
 			return new LoadFich(s[1]);
@@ -30,7 +31,7 @@ public class LoadFich implements Command {
 
 	@Override
 	public String textHelp() {
-		return "LOADFICH: Carga el fichero." +
+		return "LOAD: Carga el fichero." +
 				System.getProperty("line.separator");
 	}
 	
