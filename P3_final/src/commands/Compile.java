@@ -3,7 +3,6 @@ package commands;
 
 
 import exception.ArrayException;
-import exception.ExceptionDivisionByZero;
 import exception.LexicalAnalisisException;
 import exception.StackException;
 import paquete.Engine;
@@ -11,8 +10,7 @@ import paquete.Engine;
 public class Compile implements Command {
 
 	@Override
-	public void execute(Engine engine) throws LexicalAnalisisException,ArrayException, ExceptionDivisionByZero,
-			StackException {
+	public void execute(Engine engine) throws LexicalAnalisisException, ArrayException, StackException {
 		engine.compile();
 	}
 

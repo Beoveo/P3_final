@@ -17,6 +17,7 @@ import commands.CommandParser;
 import exception.ArrayException;
 import exception.BadFormatByteCodeException;
 import exception.ExceptionDivisionByZero;
+import exception.ExecutionErrorException;
 import exception.LexicalAnalisisException;
 import exception.StackException;
 import generate_bc.Compiler;
@@ -57,6 +58,7 @@ import generate_bc.Compiler;
 			else{
 				File fr = new File(archivo);
 				sc = new Scanner(fr);
+				sProgram.reset();
 				while(sc.hasNextLine()){
 					line = sc.nextLine();
 					this.sProgram.addSourceProgram(line);
@@ -76,7 +78,7 @@ import generate_bc.Compiler;
 		 * @throws BadFormatByteCodeException 
 		 * 
 		 */
-		public void start() throws ExceptionDivisionByZero, FileNotFoundException, StackException, ArrayException, LexicalAnalisisException, BadFormatByteCodeException{
+		public void start(){
 			this.end = false;
 			String line = " ";
 				while(!end){
@@ -86,11 +88,14 @@ import generate_bc.Compiler;
 				if(comando == null) System.out.println("Error: Vuelva introducir el comando.");
 				else {
 					System.out.println("Comienza la ejecucion de " + comando.toString());
-					comando.execute(this);
-					System.out.println("Programa fuente almacenado: " + 
-					System.getProperty("line.separator") + sProgram.toString());
-					System.out.println("Programa fuente almacenado: " + 
-							System.getProperty("line.separator") + bcProgram.toString());
+					try{
+						comando.execute(this);
+						System.out.println("Programa fuente almacenado: " + System.getProperty("line.separator") + sProgram.toString());
+						System.out.println("Programa parseado almacenado: " + System.getProperty("line.separator") + bcProgram.toString());
+					}catch (ExecutionErrorException | ArrayException | LexicalAnalisisException |
+							 FileNotFoundException | BadFormatByteCodeException e){
+						 System.out.println(e.getMessage());
+					}
 				}
 			}
 			in.close();
@@ -131,7 +136,7 @@ import generate_bc.Compiler;
 								System.getProperty("line.separator"));
 			System.out.println(cpu.toString());
 			cpu.reset();
-			sProgram.reset();
+			parsedProgram.reset();
 			cpu.resetHalt();
 			return exeOk; 
 }
@@ -174,14 +179,9 @@ import generate_bc.Compiler;
 		 * @throws ArrayException
 		 */
 
-		public void compile() throws LexicalAnalisisException, ArrayException {
-			 try{
+		public void compile() throws ArrayException, LexicalAnalisisException{
 			    this.lexicalAnalysis();
 			    this.generateByteCode();
-			 }
-			 catch(LexicalAnalisisException | ArrayException e){
-				 System.out.println(e.getMessage());
-			 }
 		}
 		
 		/**

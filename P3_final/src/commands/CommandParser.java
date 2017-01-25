@@ -12,7 +12,6 @@ package commands;
 public class CommandParser {
 	private final static Command[] commands = {new Help(),new Quit(), new Reset(),
 		 new Replace(),new Run(), new Compile(), new LoadFich()};
-	// quitar addbytecode
 	
 	/**
 	 * Metodo que parsea el comando, que es lo primero que se introduce por teclado.

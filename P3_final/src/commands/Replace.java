@@ -43,7 +43,7 @@ public class Replace implements Command {
 	@Override
 	public Command parse(String[] s) {
 		s[0] = s[0].toUpperCase();
-		if (s.length!=2 || !s[0].equals("REPLACE")) return null;
+		if (s.length!=2 || !s[0].equals("REPLACEBC")) return null;
 	else return parseAux(s[0], s[1]);
 	}
 	
